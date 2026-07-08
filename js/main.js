@@ -18,18 +18,19 @@
       "nav.skills": "Skills",
       "nav.contact": "Contacto",
 
-      "hero.eyebrow": "Programador · Desarrollador de software",
-      "hero.title": `Hola, soy <span class="grad">Isaac Rueda Biota</span>`,
+      "hero.eyebrow": "Programador",
+      "hero.title": `Hola, soy <span class="grad hero__name">Isaac Rueda Biota</span>`,
       "hero.cta1": "Ver proyectos",
       "hero.cta2": "Contáctame",
       "hero.years": "años",
+      "hero.experience": "de experiencia",
       "hero.technologies": "tecnologías",
       "hero.eager": "ganas de aprender",
 
       "about.eyebrow": "Sobre mí",
       "about.title": "Un poco sobre mí",
       "about.p1": `Soy un programador de {age} años apasionado por la tecnología y por resolver problemas reales con código. Me manejo tanto en back-end como en front-end y disfruto aprendiendo lenguajes y herramientas nuevas. Actualmente formo parte del equipo de <strong>Aitana</strong>, donde, entre otras cosas, desarrollo soluciones sobre Dynamics 365 Business Central.`,
-      "about.p2": `Me defino por las ganas constantes de aprender y mejorar: cada proyecto es una oportunidad para crecer, cuidar los detalles y hacer las cosas un poco mejor que ayer.`,
+      "about.p2": `Me defino por las ganas constantes de aprender y mejorar: cada proyecto es una oportunidad para crecer, cuidar los detalles y hacer las cosas un poco mejor que ayer. Fuera del código me apasiona el deporte —sobre todo el fútbol— y me gusta mantenerme activo entrenando con frecuencia.`,
       "about.cv": "Descargar CV",
 
       "exp.eyebrow": "Trayectoria",
@@ -103,18 +104,19 @@
       "nav.skills": "Skills",
       "nav.contact": "Contact",
 
-      "hero.eyebrow": "Software Developer",
-      "hero.title": `Hi, I'm <span class="grad">Isaac Rueda Biota</span>`,
+      "hero.eyebrow": "Developer",
+      "hero.title": `Hi, I'm <span class="grad hero__name">Isaac Rueda Biota</span>`,
       "hero.cta1": "View projects",
       "hero.cta2": "Get in touch",
       "hero.years": "years old",
+      "hero.experience": "of experience",
       "hero.technologies": "technologies",
       "hero.eager": "eager to learn",
 
       "about.eyebrow": "About me",
       "about.title": "A bit about me",
       "about.p1": `I'm a {age}-year-old software developer passionate about technology and solving real problems with code. I'm comfortable with both back-end and front-end, and I love learning new languages and tools. I'm currently part of the team at <strong>Aitana</strong>, where, among other things, I develop solutions on Dynamics 365 Business Central.`,
-      "about.p2": `I'm defined by a constant drive to learn and improve: every project is a chance to grow, care about the details and do things a little better than yesterday.`,
+      "about.p2": `I'm defined by a constant drive to learn and improve: every project is a chance to grow, care about the details and do things a little better than yesterday. Away from the keyboard I'm passionate about sport —especially football— and I like to stay active by training regularly.`,
       "about.cv": "Download CV",
 
       "exp.eyebrow": "Journey",
@@ -194,6 +196,22 @@
   }
   var AGE = computeAge();
 
+  // Experiencia contada automáticamente desde marzo de 2024 (años, meses y días)
+  function computeExperience(lang) {
+    var start = new Date(2024, 2, 1); // 2 = marzo (los meses van de 0 a 11)
+    var now = new Date();
+    var y = now.getFullYear() - start.getFullYear();
+    var m = now.getMonth() - start.getMonth();
+    var d = now.getDate() - start.getDate();
+    if (d < 0) {
+      m -= 1;
+      d += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); // días del mes anterior
+    }
+    if (m < 0) { y -= 1; m += 12; }
+    var yl = lang === "en" ? "y" : "a";
+    return y + yl + " " + m + "m " + d + "d";
+  }
+
   var root = document.documentElement;
   var langToggle = document.getElementById("langToggle");
 
@@ -208,6 +226,9 @@
     document.title = docTitle[lang];
     // El botón muestra el idioma AL QUE se cambia
     langToggle.textContent = lang === "es" ? "EN" : "ES";
+    // Experiencia (las unidades cambian según el idioma)
+    var expEl = document.getElementById("expStat");
+    if (expEl) expEl.textContent = computeExperience(lang);
     localStorage.setItem("lang", lang);
   }
 
