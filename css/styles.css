@@ -366,13 +366,19 @@ h1, h2, h3, .nav__logo {
   display: block;
 }
 
-/* Carrusel dentro de "Sobre mí" (ocupa el sitio de la foto, con marco degradado) */
-.about__carousel {
-  max-width: 100%;
+/* Carrusel dentro de "Sobre mí": marco degradado (exterior) + carrusel que recorta (interior) */
+.about__frame {
   padding: 3px;
-  border: none;
-  border-radius: 22px;
+  border-radius: 20px;
   background: var(--grad);
+  box-shadow: var(--shadow);
+}
+.about__frame .carousel {
+  max-width: 100%;
+  margin: 0;
+  border: none;
+  border-radius: 17px;
+  box-shadow: none;
 }
 .carousel__btn {
   position: absolute;
