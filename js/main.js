@@ -19,8 +19,7 @@
       "nav.contact": "Contacto",
 
       "hero.eyebrow": "Programador · Desarrollador de software",
-      "hero.title": `Hola, soy Isaac.<br /> Convierto ideas en <span class="grad">software</span>.`,
-      "hero.subtitle": `Tengo 22 años y soy programador. Trabajo tanto en back-end como en front-end y disfruto aprendiendo nuevos lenguajes y tecnologías. Actualmente desarrollo en <strong>Aitana</strong>. Con muchas ganas de aprender, mejorar y construir cosas que aporten valor real.`,
+      "hero.title": `Hola, soy <span class="grad">Isaac Rueda Biota</span>`,
       "hero.cta1": "Ver proyectos",
       "hero.cta2": "Contáctame",
       "hero.years": "años",
@@ -29,7 +28,7 @@
 
       "about.eyebrow": "Sobre mí",
       "about.title": "Un poco sobre mí",
-      "about.p1": `Soy un programador de 22 años apasionado por la tecnología y por resolver problemas reales con código. Me manejo tanto en back-end como en front-end y disfruto aprendiendo lenguajes y herramientas nuevas. Actualmente formo parte del equipo de <strong>Aitana</strong>, donde, entre otras cosas, desarrollo soluciones sobre Dynamics 365 Business Central.`,
+      "about.p1": `Soy un programador de {age} años apasionado por la tecnología y por resolver problemas reales con código. Me manejo tanto en back-end como en front-end y disfruto aprendiendo lenguajes y herramientas nuevas. Actualmente formo parte del equipo de <strong>Aitana</strong>, donde, entre otras cosas, desarrollo soluciones sobre Dynamics 365 Business Central.`,
       "about.p2": `Me defino por las ganas constantes de aprender y mejorar: cada proyecto es una oportunidad para crecer, cuidar los detalles y hacer las cosas un poco mejor que ayer.`,
       "about.cv": "Descargar CV",
 
@@ -104,9 +103,8 @@
       "nav.skills": "Skills",
       "nav.contact": "Contact",
 
-      "hero.eyebrow": "Programmer · Software Developer",
-      "hero.title": `Hi, I'm Isaac.<br /> I turn ideas into <span class="grad">software</span>.`,
-      "hero.subtitle": `I'm 22 and I'm a programmer. I work on both back-end and front-end, and I enjoy learning new languages and technologies. I currently develop at <strong>Aitana</strong>. Eager to learn, improve and build things that add real value.`,
+      "hero.eyebrow": "Software Developer",
+      "hero.title": `Hi, I'm <span class="grad">Isaac Rueda Biota</span>`,
       "hero.cta1": "View projects",
       "hero.cta2": "Get in touch",
       "hero.years": "years old",
@@ -115,7 +113,7 @@
 
       "about.eyebrow": "About me",
       "about.title": "A bit about me",
-      "about.p1": `I'm a 22-year-old programmer passionate about technology and solving real problems with code. I'm comfortable with both back-end and front-end, and I love learning new languages and tools. I'm currently part of the team at <strong>Aitana</strong>, where, among other things, I develop solutions on Dynamics 365 Business Central.`,
+      "about.p1": `I'm a {age}-year-old software developer passionate about technology and solving real problems with code. I'm comfortable with both back-end and front-end, and I love learning new languages and tools. I'm currently part of the team at <strong>Aitana</strong>, where, among other things, I develop solutions on Dynamics 365 Business Central.`,
       "about.p2": `I'm defined by a constant drive to learn and improve: every project is a chance to grow, care about the details and do things a little better than yesterday.`,
       "about.cv": "Download CV",
 
@@ -174,8 +172,8 @@
       "skills.analytical": "Analytical thinking",
       "skills.adaptability": "Adaptability to change",
 
-      "contact.title": "Let's talk?",
-      "contact.text": "I'm open to new opportunities and projects. Drop me a line and I'll get back to you soon.",
+      "contact.title": "Let's work together",
+      "contact.text": "I'm open to new opportunities and projects. Feel free to reach out and I'll get back to you soon.",
       "contact.btn": "Send email",
 
       "footer.copy": "Made with love and code.",
@@ -183,7 +181,18 @@
     }
   };
 
-  var docTitle = { es: "Isaac Rueda · Programador", en: "Isaac Rueda · Programmer" };
+  var docTitle = { es: "Isaac Rueda · Programador", en: "Isaac Rueda · Software Developer" };
+
+  // Edad calculada automáticamente desde la fecha de nacimiento: 22/07/2004
+  function computeAge() {
+    var b = new Date(2004, 6, 22); // 6 = julio (los meses van de 0 a 11)
+    var now = new Date();
+    var age = now.getFullYear() - b.getFullYear();
+    var m = now.getMonth() - b.getMonth();
+    if (m < 0 || (m === 0 && now.getDate() < b.getDate())) age--;
+    return age;
+  }
+  var AGE = computeAge();
 
   var root = document.documentElement;
   var langToggle = document.getElementById("langToggle");
@@ -193,7 +202,7 @@
     var dict = translations[lang];
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var key = el.getAttribute("data-i18n");
-      if (dict[key] !== undefined) el.innerHTML = dict[key];
+      if (dict[key] !== undefined) el.innerHTML = dict[key].replace(/\{age\}/g, AGE);
     });
     root.setAttribute("lang", lang);
     document.title = docTitle[lang];
@@ -282,4 +291,10 @@
      5. Año automático en el footer
      ============================================================ */
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* ============================================================
+     6. Edad automática en el hero
+     ============================================================ */
+  var ageStat = document.getElementById("ageStat");
+  if (ageStat) ageStat.textContent = AGE;
 })();
