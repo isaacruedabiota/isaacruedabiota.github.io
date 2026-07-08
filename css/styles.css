@@ -138,6 +138,23 @@ h1, h2, h3, .nav__logo {
   transition: background 0.2s, transform 0.2s;
 }
 .theme-toggle:hover { background: var(--surface-2); transform: translateY(-2px); }
+
+.lang-toggle {
+  height: 42px;
+  min-width: 42px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, color 0.2s;
+}
+.lang-toggle:hover { background: var(--surface-2); transform: translateY(-2px); color: var(--brand); }
 .theme-toggle .icon-moon { display: none; }
 :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
 :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
