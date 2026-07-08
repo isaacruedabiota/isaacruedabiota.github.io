@@ -30,8 +30,12 @@
       "about.eyebrow": "Sobre mí",
       "about.title": "Un poco sobre mí",
       "about.p1": `Soy un programador de {age} años apasionado por la tecnología y por resolver problemas reales con código. Me manejo tanto en back-end como en front-end y disfruto aprendiendo lenguajes y herramientas nuevas. Actualmente formo parte del equipo de <strong>Aitana</strong>, donde, entre otras cosas, desarrollo soluciones sobre Dynamics 365 Business Central.`,
-      "about.p2": `Me defino por las ganas constantes de aprender y mejorar: cada proyecto es una oportunidad para crecer, cuidar los detalles y hacer las cosas un poco mejor que ayer. Fuera del código me apasiona el deporte —sobre todo el fútbol— y me gusta mantenerme activo entrenando con frecuencia.`,
+      "about.p2": `Me defino por las ganas constantes de aprender y mejorar: cada proyecto es una oportunidad para crecer, cuidar los detalles y hacer las cosas un poco mejor que ayer. Fuera del código me apasiona el deporte, sobre todo el fútbol, y me gusta mantenerme activo entrenando con frecuencia.`,
       "about.cv": "Descargar CV",
+
+      "gal.eyebrow": "Fuera del código",
+      "gal.title": "En mi tiempo libre",
+      "gal.lead": "Deporte, fútbol y algo de mí más allá de la pantalla.",
 
       "exp.eyebrow": "Trayectoria",
       "exp.title": "Experiencia y formación",
@@ -116,8 +120,12 @@
       "about.eyebrow": "About me",
       "about.title": "A bit about me",
       "about.p1": `I'm a {age}-year-old software developer passionate about technology and solving real problems with code. I'm comfortable with both back-end and front-end, and I love learning new languages and tools. I'm currently part of the team at <strong>Aitana</strong>, where, among other things, I develop solutions on Dynamics 365 Business Central.`,
-      "about.p2": `I'm defined by a constant drive to learn and improve: every project is a chance to grow, care about the details and do things a little better than yesterday. Away from the keyboard I'm passionate about sport —especially football— and I like to stay active by training regularly.`,
+      "about.p2": `I'm defined by a constant drive to learn and improve: every project is a chance to grow, care about the details and do things a little better than yesterday. Away from the keyboard I'm passionate about sport, especially football, and I like to stay active by training regularly.`,
       "about.cv": "Download CV",
+
+      "gal.eyebrow": "Off the clock",
+      "gal.title": "In my free time",
+      "gal.lead": "Sport, football and a bit of me beyond the screen.",
 
       "exp.eyebrow": "Journey",
       "exp.title": "Experience & Education",
@@ -198,7 +206,7 @@
 
   // Experiencia contada automáticamente desde marzo de 2024 (años, meses y días)
   function computeExperience(lang) {
-    var start = new Date(2024, 2, 1); // 2 = marzo (los meses van de 0 a 11)
+    var start = new Date(2024, 2, 11); // 11 de marzo de 2024 (mes 2 = marzo)
     var now = new Date();
     var y = now.getFullYear() - start.getFullYear();
     var m = now.getMonth() - start.getMonth();
@@ -318,4 +326,55 @@
      ============================================================ */
   var ageStat = document.getElementById("ageStat");
   if (ageStat) ageStat.textContent = AGE;
+
+  /* ============================================================
+     7. Carrusel de fotos
+     ============================================================ */
+  (function initCarousel() {
+    var track = document.getElementById("carouselTrack");
+    if (!track) return;
+    var count = track.children.length;
+    var dotsWrap = document.getElementById("carouselDots");
+    var i = 0;
+    var timer = null;
+
+    // Puntos de navegación
+    var dots = [];
+    for (var s = 0; s < count; s++) {
+      var b = document.createElement("button");
+      b.className = "carousel__dot";
+      b.setAttribute("aria-label", "Ir a la foto " + (s + 1));
+      (function (idx) {
+        b.addEventListener("click", function () { go(idx); restart(); });
+      })(s);
+      dotsWrap.appendChild(b);
+      dots.push(b);
+    }
+
+    function go(n) {
+      i = (n + count) % count;
+      track.style.transform = "translateX(-" + i * 100 + "%)";
+      dots.forEach(function (d, k) { d.classList.toggle("active", k === i); });
+    }
+    function next() { go(i + 1); }
+    function prev() { go(i - 1); }
+    function play() { timer = setInterval(next, 5000); }
+    function restart() { clearInterval(timer); play(); }
+
+    document.getElementById("carNext").addEventListener("click", function () { next(); restart(); });
+    document.getElementById("carPrev").addEventListener("click", function () { prev(); restart(); });
+
+    // Deslizar con el dedo (móvil)
+    var x0 = null;
+    track.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); restart(); }
+      x0 = null;
+    });
+
+    go(0);
+    play();
+  })();
 })();
