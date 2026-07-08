@@ -362,8 +362,17 @@ h1, h2, h3, .nav__logo {
 .carousel__slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
+}
+
+/* Carrusel dentro de "Sobre mí" (ocupa el sitio de la foto, con marco degradado) */
+.about__carousel {
+  max-width: 100%;
+  padding: 3px;
+  border: none;
+  border-radius: 22px;
+  background: var(--grad);
 }
 .carousel__btn {
   position: absolute;

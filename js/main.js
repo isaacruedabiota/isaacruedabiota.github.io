@@ -33,10 +33,6 @@
       "about.p2": `Me defino por las ganas constantes de aprender y mejorar: cada proyecto es una oportunidad para crecer, cuidar los detalles y hacer las cosas un poco mejor que ayer. Fuera del código me apasiona el deporte, sobre todo el fútbol, y me gusta mantenerme activo entrenando con frecuencia.`,
       "about.cv": "Descargar CV",
 
-      "gal.eyebrow": "Fuera del código",
-      "gal.title": "En mi tiempo libre",
-      "gal.lead": "Deporte, fútbol y algo de mí más allá de la pantalla.",
-
       "exp.eyebrow": "Trayectoria",
       "exp.title": "Experiencia y formación",
       "exp.lead": "Mi recorrido profesional y académico.",
@@ -122,10 +118,6 @@
       "about.p1": `I'm a {age}-year-old software developer passionate about technology and solving real problems with code. I'm comfortable with both back-end and front-end, and I love learning new languages and tools. I'm currently part of the team at <strong>Aitana</strong>, where, among other things, I develop solutions on Dynamics 365 Business Central.`,
       "about.p2": `I'm defined by a constant drive to learn and improve: every project is a chance to grow, care about the details and do things a little better than yesterday. Away from the keyboard I'm passionate about sport, especially football, and I like to stay active by training regularly.`,
       "about.cv": "Download CV",
-
-      "gal.eyebrow": "Off the clock",
-      "gal.title": "In my free time",
-      "gal.lead": "Sport, football and a bit of me beyond the screen.",
 
       "exp.eyebrow": "Journey",
       "exp.title": "Experience & Education",

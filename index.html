@@ -100,8 +100,16 @@
     <section class="section" id="sobre-mi">
       <div class="container about">
         <div class="about__media reveal">
-          <div class="about__photo">
-            <img src="assets/foto.png" alt="Foto de Isaac Rueda Biota" class="about__img" />
+          <div class="carousel about__carousel" id="carousel">
+            <div class="carousel__track" id="carouselTrack">
+              <div class="carousel__slide"><img src="assets/foto.png" alt="Isaac Rueda Biota" /></div>
+              <div class="carousel__slide"><img src="assets/futbol.jpg" alt="Isaac jugando al fútbol sala" loading="lazy" /></div>
+              <div class="carousel__slide"><img src="assets/gimnasio.jpg" alt="Isaac en el gimnasio" loading="lazy" /></div>
+              <div class="carousel__slide"><img src="assets/espejo.jpg" alt="Isaac Rueda Biota" loading="lazy" /></div>
+            </div>
+            <button class="carousel__btn carousel__btn--prev" id="carPrev" aria-label="Foto anterior">‹</button>
+            <button class="carousel__btn carousel__btn--next" id="carNext" aria-label="Foto siguiente">›</button>
+            <div class="carousel__dots" id="carouselDots"></div>
           </div>
         </div>
         <div class="about__content">
@@ -123,30 +131,6 @@
             entrenando con frecuencia.
           </p>
           <a href="assets/cv.pdf" class="btn btn--ghost reveal" download data-i18n="about.cv">Descargar CV</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= GALERÍA (CARRUSEL) ================= -->
-    <section class="section" id="galeria">
-      <div class="container">
-        <div class="section__head">
-          <p class="section__eyebrow reveal" data-i18n="gal.eyebrow">Fuera del código</p>
-          <h2 class="section__title reveal" data-i18n="gal.title">En mi tiempo libre</h2>
-          <p class="section__lead reveal" data-i18n="gal.lead">
-            Deporte, fútbol y algo de mí más allá de la pantalla.
-          </p>
-        </div>
-
-        <div class="carousel reveal" id="carousel">
-          <div class="carousel__track" id="carouselTrack">
-            <div class="carousel__slide"><img src="assets/futbol.jpg" alt="Isaac jugando al fútbol sala" loading="lazy" /></div>
-            <div class="carousel__slide"><img src="assets/gimnasio.jpg" alt="Isaac en el gimnasio" loading="lazy" /></div>
-            <div class="carousel__slide"><img src="assets/espejo.jpg" alt="Isaac Rueda Biota" loading="lazy" /></div>
-          </div>
-          <button class="carousel__btn carousel__btn--prev" id="carPrev" aria-label="Foto anterior">‹</button>
-          <button class="carousel__btn carousel__btn--next" id="carNext" aria-label="Foto siguiente">›</button>
-          <div class="carousel__dots" id="carouselDots"></div>
         </div>
       </div>
     </section>
