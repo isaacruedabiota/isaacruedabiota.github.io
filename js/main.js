@@ -86,7 +86,6 @@
       "skills.eyebrow": "Tecnologías",
       "skills.langLabel": "Lenguajes de programación",
       "skills.techLabel": "Tecnologías",
-      "skills.patterns": "Patrones de diseño",
       "skills.softwareLabel": "Software",
       "skills.softLabel": "Habilidades",
       "skills.teamwork": "Trabajo en equipo",
@@ -178,7 +177,6 @@
       "skills.eyebrow": "Technologies",
       "skills.langLabel": "Programming languages",
       "skills.techLabel": "Technologies",
-      "skills.patterns": "Design patterns",
       "skills.softwareLabel": "Software",
       "skills.softLabel": "Soft skills",
       "skills.teamwork": "Teamwork",
@@ -374,7 +372,7 @@
     track.addEventListener("touchend", function (e) {
       if (x0 === null) return;
       var dx = e.changedTouches[0].clientX - x0;
-      if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); restart(); }
+      if (Math.abs(dx) > 40) { if (dx < 0) { next(); } else { prev(); } restart(); }
       x0 = null;
     });
 
