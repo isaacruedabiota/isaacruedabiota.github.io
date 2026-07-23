@@ -84,8 +84,10 @@
       "proj.github": "Ver en GitHub ↗",
 
       "skills.eyebrow": "Tecnologías",
+      "skills.langLabel": "Lenguajes de programación",
       "skills.techLabel": "Tecnologías",
       "skills.patterns": "Patrones de diseño",
+      "skills.softwareLabel": "Software",
       "skills.softLabel": "Habilidades",
       "skills.teamwork": "Trabajo en equipo",
       "skills.leadership": "Liderazgo colaborativo",
@@ -174,8 +176,10 @@
       "proj.github": "View on GitHub ↗",
 
       "skills.eyebrow": "Technologies",
+      "skills.langLabel": "Programming languages",
       "skills.techLabel": "Technologies",
       "skills.patterns": "Design patterns",
+      "skills.softwareLabel": "Software",
       "skills.softLabel": "Soft skills",
       "skills.teamwork": "Teamwork",
       "skills.leadership": "Collaborative leadership",
