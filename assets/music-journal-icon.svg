@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 104" width="104" height="104" role="img" aria-label="Music Journal">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#c084fc"/><stop offset="1" stop-color="#6d28d9"/>
+  </linearGradient></defs>
+  <rect width="104" height="104" rx="24" fill="url(#g)"/>
+  <g fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M44 66 V29 L74 23 V60"/>
+    <circle cx="37" cy="66" r="7.5" fill="#fff" stroke="none"/>
+    <circle cx="67" cy="60" r="7.5" fill="#fff" stroke="none"/>
+    <path d="M28 82 h48" opacity=".55"/>
+  </g>
+</svg>
