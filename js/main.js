@@ -103,6 +103,8 @@
       "proj.c12title": "Servidor de Minecraft en Raspberry Pi",
       "proj.c12text": "La otra mitad del panel: los scripts que dejan un servidor de Minecraft Forge funcionando en una Raspberry Pi. Instalación desatendida, servicio de systemd, copias de seguridad y descarga de mods desde Modrinth resolviendo sus dependencias.",
       "proj.more": "Ver más ↗",
+      "proj.showMore": "Ver más proyectos",
+      "proj.showLess": "Ver menos",
       "proj.demo": "Ver demo ↗",
       "proj.code": "Código ↗",
       "proj.github": "Ver en GitHub ↗",
@@ -218,6 +220,8 @@
       "proj.c12title": "Minecraft server on Raspberry Pi",
       "proj.c12text": "The other half of the dashboard: the scripts that get a Minecraft Forge server running on a Raspberry Pi. Unattended install, systemd service, backups and mod downloads from Modrinth with dependency resolution.",
       "proj.more": "View more ↗",
+      "proj.showMore": "Show more projects",
+      "proj.showLess": "Show less",
       "proj.demo": "Live demo ↗",
       "proj.code": "Code ↗",
       "proj.github": "View on GitHub ↗",
@@ -364,6 +368,22 @@
     });
   } else {
     revealEls.forEach(function (el) { el.classList.add("visible"); });
+  }
+
+  /* ============================================================
+     4b. Desplegable de proyectos
+     ============================================================ */
+  var projToggle = document.getElementById("projectsToggle");
+  var projExtra = document.getElementById("projectsExtra");
+  if (projToggle && projExtra) {
+    projToggle.addEventListener("click", function () {
+      var open = projExtra.hasAttribute("hidden");
+      if (open) projExtra.removeAttribute("hidden");
+      else projExtra.setAttribute("hidden", "");
+      projToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      projToggle.setAttribute("data-i18n", open ? "proj.showLess" : "proj.showMore");
+      applyLanguage(root.getAttribute("lang"));
+    });
   }
 
   /* ============================================================

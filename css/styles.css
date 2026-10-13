@@ -501,6 +501,9 @@ h1, h2, h3, .nav__logo {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 26px;
 }
+.projects--extra { margin-top: 26px; }
+.projects--extra[hidden] { display: none; }
+.projects__more { display: flex; justify-content: center; margin-top: 36px; }
 .card {
   background: var(--surface);
   border: 1px solid var(--border);

@@ -311,20 +311,17 @@
 
           <article class="card reveal">
             <div class="card__media card__media--logo">
-              <img src="assets/mc-icon.png" alt="Logo del panel de Minecraft" class="card__logo" loading="lazy" />
-              <span class="card__badge" data-i18n="proj.c4badge">Panel web</span>
+              <img src="assets/cartera-icon.svg" alt="Logo de Mi cartera" class="card__logo" loading="lazy" />
+              <span class="card__badge" data-i18n="proj.c11badge">Web + IA</span>
             </div>
             <div class="card__body">
-              <h3 class="card__title" data-i18n="proj.c4title">Panel para servidores de Minecraft</h3>
-              <p class="card__text" data-i18n="proj.c4text">
-                Panel web para administrar servidores de Minecraft Java: estado en
-                tiempo real, consola RCON, gestión de jugadores, mods y
-                arranque/parada del proceso. Con cifrado de secretos, auditoría y
-                protección CSRF.
+              <h3 class="card__title" data-i18n="proj.c11title">Mi cartera</h3>
+              <p class="card__text" data-i18n="proj.c11text">
+                Cada día detecta qué acciones y ETFs se han movido de forma relevante, busca noticias recientes sobre ellos y explica el porqué en dos o tres frases con un modelo de lenguaje. FastAPI y SQLite, pensado para vivir en una Raspberry Pi sin dependencias de pago.
               </p>
-              <ul class="card__tags"><li>Python</li><li>Flask</li><li>RCON</li></ul>
+              <ul class="card__tags"><li>FastAPI</li><li>SQLite</li><li>LLM</li></ul>
               <div class="card__links">
-                <a href="https://github.com/isaacruedabiota/SMD" target="_blank" rel="noopener" data-i18n="proj.github">Ver en GitHub ↗</a>
+                <a href="https://github.com/isaacruedabiota/MI-CARTERA" target="_blank" rel="noopener" data-i18n="proj.github">Ver en GitHub ↗</a>
               </div>
             </div>
           </article>
@@ -362,7 +359,9 @@
               </div>
             </div>
           </article>
+        </div>
 
+        <div class="projects projects--extra" id="projectsExtra" hidden>
           <article class="card reveal">
             <div class="card__media card__media--logo">
               <img src="assets/football-predictor-icon.svg" alt="Logo de Footy Predictor" class="card__logo" loading="lazy" />
@@ -434,17 +433,20 @@
 
           <article class="card reveal">
             <div class="card__media card__media--logo">
-              <img src="assets/cartera-icon.svg" alt="Logo de Mi cartera" class="card__logo" loading="lazy" />
-              <span class="card__badge" data-i18n="proj.c11badge">Web + IA</span>
+              <img src="assets/mc-icon.png" alt="Logo del panel de Minecraft" class="card__logo" loading="lazy" />
+              <span class="card__badge" data-i18n="proj.c4badge">Panel web</span>
             </div>
             <div class="card__body">
-              <h3 class="card__title" data-i18n="proj.c11title">Mi cartera</h3>
-              <p class="card__text" data-i18n="proj.c11text">
-                Cada día detecta qué acciones y ETFs se han movido de forma relevante, busca noticias recientes sobre ellos y explica el porqué en dos o tres frases con un modelo de lenguaje. FastAPI y SQLite, pensado para vivir en una Raspberry Pi sin dependencias de pago.
+              <h3 class="card__title" data-i18n="proj.c4title">Panel para servidores de Minecraft</h3>
+              <p class="card__text" data-i18n="proj.c4text">
+                Panel web para administrar servidores de Minecraft Java: estado en
+                tiempo real, consola RCON, gestión de jugadores, mods y
+                arranque/parada del proceso. Con cifrado de secretos, auditoría y
+                protección CSRF.
               </p>
-              <ul class="card__tags"><li>FastAPI</li><li>SQLite</li><li>LLM</li></ul>
+              <ul class="card__tags"><li>Python</li><li>Flask</li><li>RCON</li></ul>
               <div class="card__links">
-                <a href="https://github.com/isaacruedabiota/MI-CARTERA" target="_blank" rel="noopener" data-i18n="proj.github">Ver en GitHub ↗</a>
+                <a href="https://github.com/isaacruedabiota/SMD" target="_blank" rel="noopener" data-i18n="proj.github">Ver en GitHub ↗</a>
               </div>
             </div>
           </article>
@@ -465,6 +467,10 @@
               </div>
             </div>
           </article>
+        </div>
+
+        <div class="projects__more reveal">
+          <button type="button" class="btn btn--ghost" id="projectsToggle" aria-expanded="false" aria-controls="projectsExtra" data-i18n="proj.showMore">Ver más proyectos</button>
         </div>
       </div>
     </section>
