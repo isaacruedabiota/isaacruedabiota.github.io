@@ -378,8 +378,8 @@
   if (projToggle && projExtra) {
     projToggle.addEventListener("click", function () {
       var open = projExtra.hasAttribute("hidden");
-      if (open) projExtra.removeAttribute("hidden");
-      else projExtra.setAttribute("hidden", "");
+      if (open) { projExtra.removeAttribute("hidden"); projExtra.style.display = ""; }
+      else { projExtra.setAttribute("hidden", ""); projExtra.style.display = "none"; }
       projToggle.setAttribute("aria-expanded", open ? "true" : "false");
       projToggle.setAttribute("data-i18n", open ? "proj.showLess" : "proj.showMore");
       applyLanguage(root.getAttribute("lang"));
